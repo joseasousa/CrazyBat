@@ -20,11 +20,16 @@ public class GameControler : MonoBehaviour {
 	public TextMesh numberScore;
 	public TextMesh shadowScore;
 
+	private  float currentTimeToREstart;
+	public float timetoRestart;
+
 	private int score;
 
+	private GameOverControler gameOverControler;
 
 	void Start () {
 		startPositionPlayer = player.position;	
+		gameOverControler = FindObjectOfType(typeof(GameOverControler))as GameOverControler;
 	}
 
 
@@ -33,7 +38,7 @@ public class GameControler : MonoBehaviour {
 			 
 			case(GameStates.START):{
 				player.position = startPositionPlayer;	
-				currentState = GameStates.WAITGAME;
+				currentState = GameStates.WAITGAME;				
 				score = 0;
 			}
 			break;
@@ -50,12 +55,25 @@ public class GameControler : MonoBehaviour {
 			break;
 
 			case(GameStates.GAMEOVER):{
+			currentTimeToREstart += Time.deltaTime;
+			if(currentTimeToREstart > timetoRestart){
+				currentTimeToREstart = 0; 
 				currentState = GameStates.RANKING; 
+				numberScore.renderer.enabled=false;
+				shadowScore.renderer.enabled=false;	
+				numberScore.text = score.ToString();
+				shadowScore.text = score.ToString();
+				gameOverControler.SetGameOver(score);
+				RestartGame();
+			}
+				
 			}
 			break;
 
 			case(GameStates.RANKING):{
 				player.position = startPositionPlayer;
+				numberScore.renderer.enabled=false;
+				shadowScore.renderer.enabled=false;
 			}
 			break;		
 		}	
@@ -65,23 +83,26 @@ public class GameControler : MonoBehaviour {
 		currentState = GameStates.INGAME;
 		numberScore.renderer.enabled=true;
 		shadowScore.renderer.enabled=true;
+		score = 0;
+		gameOverControler.HideGameOver();
 	}
 
 	public GameStates getCurentState(){
 		return currentState;
 	}
 
-	public void GameOver(){
+	public void CallGameOver(){
 		currentState=GameStates.GAMEOVER;
-		RestartGame();
+
 	}
 
 	private void RestartGame(){
-		player.position =startPositionPlayer;
+		player.position = startPositionPlayer;
 
-		ObstaclesBehaviour[] pipes =FindObjectsOfType(typeof(ObstaclesBehaviour))as ObstaclesBehaviour[];
-		foreach(ObstaclesBehaviour o in pipes){
-			o.gameObject.SetActive( false);
+		ObstaclesBehaviour[] obstacles =FindObjectsOfType(typeof(ObstaclesBehaviour))as ObstaclesBehaviour[];
+
+		foreach(ObstaclesBehaviour o in obstacles){
+			o.gameObject.SetActive(false);
 		}
 	}
 

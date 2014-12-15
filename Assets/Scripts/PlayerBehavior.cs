@@ -18,21 +18,22 @@ public class PlayerBehavior : MonoBehaviour
 		gameControler = FindObjectOfType(typeof(GameControler))as GameControler;       
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && gameControler.getCurentState() == GameStates.INGAME)
+        if (Input.GetMouseButtonDown(0) && gameControler.getCurentState() == GameStates.INGAME
+		    && gameControler.getCurentState() != GameStates.GAMEOVER)
         {
             animatorPlayer.SetBool("CallFly", true);
             inAnin = true;
             rigidbody2D.velocity = Vector2.zero;
             rigidbody2D.AddForce(new Vector2(0, 1) * forceFly);
 		}
-		else if(Input.GetMouseButtonDown(0))
+		else if(Input.GetMouseButtonDown(0)&& gameControler.getCurentState() != GameStates.GAMEOVER)
 		{ 
 			gameControler.StartGame();
 		}
-		if(gameControler.getCurentState()!= GameStates.INGAME && 
+
+		if(gameControler.getCurentState() != GameStates.INGAME && 
 		   gameControler.getCurentState() != GameStates.GAMEOVER)
 		{
 			rigidbody2D.gravityScale=0;
@@ -54,7 +55,7 @@ public class PlayerBehavior : MonoBehaviour
     }
 
 	void OnCollisionEnter2D(Collision2D coll) {
-		gameControler.GameOver();		
+		gameControler.CallGameOver();		
 	}
 
 }

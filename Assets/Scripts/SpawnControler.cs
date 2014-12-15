@@ -18,7 +18,6 @@ public class SpawnControler : MonoBehaviour {
 
 	private GameControler gameControler;
 
-	// Use this for initialization
 	void Start () {
 
 		for(int i=0; i<maxSpawnTubes; i++){

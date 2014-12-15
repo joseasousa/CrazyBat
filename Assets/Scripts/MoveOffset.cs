@@ -7,13 +7,12 @@ public class MoveOffset : MonoBehaviour {
 	public float speed;
 	private float offset;
 	GameControler gameControler;
-	// Use this for initialization
+
 	void Start () {
 		currentMaterial =renderer.material;
 		gameControler = FindObjectOfType(typeof(GameControler))as GameControler;    
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		if(gameControler.getCurentState() != GameStates.INGAME)
 			return;

@@ -15,16 +15,18 @@ public class ObstaclesBehaviour : MonoBehaviour {
 	}	
 
 	void OnEnable(){
-		passed=false;
+		passed = false;
 	}
-	// Update is called once per frame
+
 	void Update () {
-		if(gameControler.getCurentState() != GameStates.INGAME)
+		if(gameControler.getCurentState() != GameStates.INGAME){
 			return;
+		}
 		
 		transform.position += new Vector3(speed,0,0)*Time.deltaTime;
-		if(transform.position.x < -18){
-			gameObject.SetActive (true);
+
+		if(transform.position.x < -13){
+			gameObject.SetActive (false);
 		}
 		if(transform.position.x < gameControler.player.position.x && !passed){
 			passed = true;
