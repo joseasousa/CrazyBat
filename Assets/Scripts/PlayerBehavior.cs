@@ -33,13 +33,6 @@ public class PlayerBehavior : MonoBehaviour
 			gameControler.StartGame();
 		}
 
-		Vector3 positionPlayer = transform.position;
-
-		if(positionPlayer.y > 5){
-			positionPlayer.y = 5;
-			transform.position=positionPlayer;
-		}
-
 		if(gameControler.getCurentState() != GameStates.INGAME && 
 		   gameControler.getCurentState() != GameStates.GAMEOVER)
 		{
@@ -65,7 +58,7 @@ public class PlayerBehavior : MonoBehaviour
 		gameControler.CallGameOver();		
 	}
 
-	void OnTriggerEnter2D(Collider2D coll) {
+	void OnTriggerEnter2d(Collision2D coll) {
 		gameControler.CallGameOver();		
 	}
 
