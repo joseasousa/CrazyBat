@@ -58,4 +58,8 @@ public class PlayerBehavior : MonoBehaviour
 		gameControler.CallGameOver();		
 	}
 
+	void OnTriggerEnter2d(Collision2D coll) {
+		gameControler.CallGameOver();		
+	}
+
 }
