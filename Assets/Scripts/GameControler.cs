@@ -97,6 +97,7 @@ public class GameControler : MonoBehaviour {
 	}
 
 	private void RestartGame(){
+
 		player.position = startPositionPlayer;
 
 		ObstaclesBehaviour[] obstacles =FindObjectsOfType(typeof(ObstaclesBehaviour))as ObstaclesBehaviour[];

@@ -8,6 +8,7 @@ public class GameOverControler : MonoBehaviour {
 	public Renderer[] medals;
 
 	public GameObject content;
+	public GameObject title;
 
 	void Start () {
 		HideGameOver();
@@ -37,10 +38,12 @@ public class GameOverControler : MonoBehaviour {
 			medals[3].enabled = true;
 		}
 		content.SetActive(true);
+		title.SetActive(true);
 	}
 
 	public void HideGameOver(){
 		content.SetActive(false);
+		title.SetActive(false);
 		foreach(Renderer m in medals){
 			m.enabled=false;
 		}
