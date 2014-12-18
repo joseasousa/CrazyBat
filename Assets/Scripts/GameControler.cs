@@ -118,6 +118,7 @@ public class GameControler : MonoBehaviour
         shadowScore.renderer.enabled = true;
         score = 0;
         gameOverControler.HideGameOver();
+        mainTutorial.SetActive(false);
     }
 
     public GameStates getCurentState()
@@ -136,6 +137,14 @@ public class GameControler : MonoBehaviour
         currentState = GameStates.TUTORIAL;
         mainMenu.SetActive(false);
         mainTutorial.SetActive(true);
+    }
+    public void CallMenu() {
+        mainMenu.SetActive(true);
+        mainTutorial.SetActive(false);
+        player.gameObject.SetActive(false);
+        gameOverControler.HideGameOver();
+
+
     }
 
     public void RestartGame()

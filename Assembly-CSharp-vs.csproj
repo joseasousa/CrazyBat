@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\GameOverControler.cs" />
      <Compile Include="Assets\Scripts\MoveOffset.cs" />
      <Compile Include="Assets\Scripts\ObstaclesBehaviour.cs" />
+     <Compile Include="Assets\Scripts\PauseControler.cs" />
      <Compile Include="Assets\Scripts\PlayerBehavior.cs" />
      <Compile Include="Assets\Scripts\SpawnControler.cs" />
  <Reference Include="UnityEngine.UI">

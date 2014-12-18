@@ -17,9 +17,10 @@ public class MoveOffset : MonoBehaviour
 
     void Update()
     {
-        if (gameControler.getCurentState() != GameStates.INGAME && 
+        if ((gameControler.getCurentState() != GameStates.INGAME && 
             gameControler.getCurentState() != GameStates.MENU &&
-            gameControler.getCurentState() != GameStates.TUTORIAL)
+            gameControler.getCurentState() != GameStates.TUTORIAL)|| 
+            Time.timeScale != 1)
             return;
 
         offset += 0.001f;

@@ -10,26 +10,30 @@ public class PlayerBehavior : MonoBehaviour
 
     private float timeToAnime;
     private bool inAnin;
+
     private GameControler gameControler;
+
+    private PauseControler pauseControler;
 
     void Start()
     {
         animatorPlayer = mesh.GetComponent<Animator>();
         gameControler = FindObjectOfType(typeof(GameControler)) as GameControler;
+        pauseControler = FindObjectOfType(typeof(PauseControler)) as PauseControler;
         inAnin = true;
     }
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && gameControler.getCurentState() == GameStates.INGAME
-            && gameControler.getCurentState() != GameStates.GAMEOVER )
+            && gameControler.getCurentState() != GameStates.GAMEOVER && !pauseControler.IsPaused())
         {
             animatorPlayer.SetBool("CallFly", true);
             inAnin = true;
             rigidbody2D.velocity = Vector2.zero;
             rigidbody2D.AddForce(new Vector2(0, 1) * forceFly);
         }
-        else if (Input.GetMouseButtonDown(0) && gameControler.getCurentState() == GameStates.WAITGAME)
+        else if (Input.GetMouseButtonDown(0) && gameControler.getCurentState() == GameStates.TUTORIAL)
         {
             Restart();
         }
