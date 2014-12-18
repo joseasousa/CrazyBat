@@ -46,6 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BlinkBehavior.cs" />
+     <Compile Include="Assets\Scripts\ButonMessagerBehavior.cs" />
      <Compile Include="Assets\Scripts\GameControler.cs" />
      <Compile Include="Assets\Scripts\GameOverControler.cs" />
      <Compile Include="Assets\Scripts\MoveOffset.cs" />
@@ -54,6 +56,9 @@
      <Compile Include="Assets\Scripts\SpawnControler.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="TouchScript">
+ <HintPath>C:/Users/jose/Documents/GitHub/unity/flappygame/Assets/TouchScript/Plugins/TouchScript.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

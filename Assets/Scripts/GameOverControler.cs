@@ -11,6 +11,8 @@ public class GameOverControler : MonoBehaviour
     public GameObject content;
     public GameObject title;
 
+    public GameObject newScore;
+
     void Start()
     {
         HideGameOver();
@@ -28,6 +30,11 @@ public class GameOverControler : MonoBehaviour
         if (scoreIngame > PlayerPrefs.GetInt("Score"))
         {
             PlayerPrefs.SetInt("Score", scoreIngame);
+            newScore.SetActive(true);
+        }
+        else
+        {
+            newScore.SetActive(false);
         }
 
         score.text = scoreIngame.ToString();
@@ -53,6 +60,7 @@ public class GameOverControler : MonoBehaviour
         title.SetActive(true);
     }
 
+    
     public void HideGameOver()
     {
         content.SetActive(false);

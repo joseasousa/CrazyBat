@@ -7,12 +7,13 @@ public enum GameStates
     WAITGAME,
     INGAME,
     GAMEOVER,
-    RANKING
+    RANKING,
+    MENU,
+    TUTORIAL
 }
 
 public class GameControler : MonoBehaviour
 {
-
     public Transform player;
 
     private Vector3 startPositionPlayer;
@@ -28,6 +29,10 @@ public class GameControler : MonoBehaviour
     private int score;
 
     private GameOverControler gameOverControler;
+
+    public GameObject mainMenu;
+
+    public GameObject mainTutorial;
 
     void Start()
     {
@@ -46,6 +51,8 @@ public class GameControler : MonoBehaviour
                     player.position = startPositionPlayer;
                     currentState = GameStates.WAITGAME;
                     score = 0;
+                    mainMenu.SetActive(true);
+                    player.gameObject.SetActive(false);
                 }
                 break;
 
@@ -80,6 +87,19 @@ public class GameControler : MonoBehaviour
                 }
                 break;
 
+            case (GameStates.MENU):
+                {
+                    player.position = startPositionPlayer;
+                    mainMenu.SetActive(true);
+                }
+                break;
+
+            case (GameStates.TUTORIAL):
+                {
+                    player.position = startPositionPlayer;
+                }
+                break;
+
             case (GameStates.RANKING):
                 {
                     player.position = startPositionPlayer;
@@ -92,6 +112,7 @@ public class GameControler : MonoBehaviour
 
     public void StartGame()
     {
+        
         currentState = GameStates.INGAME;
         numberScore.renderer.enabled = true;
         shadowScore.renderer.enabled = true;
@@ -107,12 +128,18 @@ public class GameControler : MonoBehaviour
     public void CallGameOver()
     {
         currentState = GameStates.GAMEOVER;
-
     }
 
-    private void RestartGame()
+    public void CallTutorial()
     {
+        player.gameObject.SetActive(true);
+        currentState = GameStates.TUTORIAL;
+        mainMenu.SetActive(false);
+        mainTutorial.SetActive(true);
+    }
 
+    public void RestartGame()
+    {
         player.position = startPositionPlayer;
 
         ObstaclesBehaviour[] obstacles = FindObjectsOfType(typeof(ObstaclesBehaviour)) as ObstaclesBehaviour[];

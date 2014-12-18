@@ -16,22 +16,27 @@ public class PlayerBehavior : MonoBehaviour
     {
         animatorPlayer = mesh.GetComponent<Animator>();
         gameControler = FindObjectOfType(typeof(GameControler)) as GameControler;
+        inAnin = true;
     }
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && gameControler.getCurentState() == GameStates.INGAME
-            && gameControler.getCurentState() != GameStates.GAMEOVER)
+            && gameControler.getCurentState() != GameStates.GAMEOVER )
         {
             animatorPlayer.SetBool("CallFly", true);
             inAnin = true;
             rigidbody2D.velocity = Vector2.zero;
             rigidbody2D.AddForce(new Vector2(0, 1) * forceFly);
         }
-        else if (Input.GetMouseButtonDown(0) && gameControler.getCurentState() != GameStates.GAMEOVER)
+        else if (Input.GetMouseButtonDown(0) && gameControler.getCurentState() == GameStates.WAITGAME)
         {
-            gameControler.StartGame();
+            Restart();
         }
+
+        animatorPlayer.SetBool("CallFly", inAnin);
+
+
         Vector3 curentPosition = transform.position;
         if (curentPosition.y > 5)
         {
@@ -49,7 +54,7 @@ public class PlayerBehavior : MonoBehaviour
             rigidbody2D.gravityScale = 1;
         }
 
-        if (inAnin)
+        if (inAnin && gameControler.getCurentState() != GameStates.TUTORIAL)
         {
             timeToAnime += Time.deltaTime;
             if (timeToAnime > 0.4f)
@@ -71,4 +76,12 @@ public class PlayerBehavior : MonoBehaviour
         gameControler.CallGameOver();
     }
 
+    public void Restart()
+    {
+        if (gameControler.getCurentState() != GameStates.GAMEOVER)
+        {
+            gameControler.RestartGame();
+            gameControler.StartGame();
+        }
+    }
 }
