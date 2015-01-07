@@ -103,7 +103,7 @@ PlayerSettings:
   iPadHighResLandscapeSplashScreen: {fileID: 0}
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
-  AndroidKeystoreName: C:/Users/jose/Documents/Build/flapy-game/user.keystore
+  AndroidKeystoreName: 
   AndroidKeyaliasName: flappybat
   resolutionDialogBanner: {fileID: 0}
   m_BuildTargetIcons:
