@@ -1,7 +1,10 @@
 fileFormatVersion: 2
-guid: d6a2f42f44241cd40839e6ba050326f5
+guid: 253bb3e5cbb3eef4e9f81cd1a4d5a7f1
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: score_0
+    21300002: New
+    21300004: score
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -25,13 +28,13 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -42,6 +45,36 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: score_0
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 661
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: New
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 597
+        width: 105
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: score
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 184
+        width: 669
+        height: 355
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

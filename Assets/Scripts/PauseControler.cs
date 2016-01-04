@@ -7,9 +7,9 @@ public class PauseControler : MonoBehaviour
     public Texture2D pauseImage;
     public Texture2D playImage;
 
-    private GameControler gameControler;
+    private GameController gameControler;
 
-    public float sizeButon;
+    public float sizeButton;
 
     private bool isPaused;
 
@@ -17,7 +17,7 @@ public class PauseControler : MonoBehaviour
 
     void Start()
     {
-        gameControler = FindObjectOfType(typeof(GameControler)) as GameControler;
+        gameControler = FindObjectOfType(typeof(GameController)) as GameController;
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class PauseControler : MonoBehaviour
         {
             if (!isPaused)
             {
-                if (GUI.Button(new Rect(0, 0, sizeButon, sizeButon), pauseImage,GUIStyle.none))
+                if (GUI.Button(new Rect(0, 0, Screen.width/sizeButton, Screen.width/sizeButton), pauseImage,GUIStyle.none))
                 {
                     isPaused = true;
                     Time.timeScale = 0;
@@ -40,7 +40,7 @@ public class PauseControler : MonoBehaviour
             }
             else
             {
-                if (GUI.Button(new Rect(0, 0, sizeButon, sizeButon), playImage, GUIStyle.none))
+				if (GUI.Button(new Rect(0, 0, Screen.width/sizeButton, Screen.width/sizeButton), playImage, GUIStyle.none))
                 {
                     isPaused = false;
                     Time.timeScale = 1;

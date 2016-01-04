@@ -17,7 +17,7 @@ public class SpawnControler : MonoBehaviour
 
     public List<GameObject> tubes;
 
-    private GameControler gameControler;
+    private GameController gameControler;
 
     void Start()
     {
@@ -30,7 +30,7 @@ public class SpawnControler : MonoBehaviour
         }
 
         currentRateSpawn = rateSpawn;
-        gameControler = FindObjectOfType(typeof(GameControler)) as GameControler;
+        gameControler = FindObjectOfType(typeof(GameController)) as GameController;
     }
 
     // Update is called once per frame

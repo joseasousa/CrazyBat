@@ -40,7 +40,7 @@ public class GameOverControler : MonoBehaviour
         score.text = scoreIngame.ToString();
         bestScore.text = PlayerPrefs.GetInt("Score").ToString();
 
-        if (scoreIngame > 50)
+        if (scoreIngame > 70)
         {
             medals[0].enabled = true;
         }
@@ -48,13 +48,9 @@ public class GameOverControler : MonoBehaviour
         {
             medals[1].enabled = true;
         }
-        else if (scoreIngame > 25)
+        else 
         {
             medals[2].enabled = true;
-        }
-        else
-        {
-            medals[3].enabled = true;
         }
         content.SetActive(true);
         title.SetActive(true);

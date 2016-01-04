@@ -11,14 +11,14 @@ public class PlayerBehavior : MonoBehaviour
     private float timeToAnime;
     private bool inAnin;
 
-    private GameControler gameControler;
+    private GameController gameControler;
 
     private PauseControler pauseControler;
 
     void Start()
     {
         animatorPlayer = mesh.GetComponent<Animator>();
-        gameControler = FindObjectOfType(typeof(GameControler)) as GameControler;
+        gameControler = FindObjectOfType(typeof(GameController)) as GameController;
         pauseControler = FindObjectOfType(typeof(PauseControler)) as PauseControler;
         inAnin = true;
     }
@@ -32,6 +32,8 @@ public class PlayerBehavior : MonoBehaviour
             inAnin = true;
             rigidbody2D.velocity = Vector2.zero;
             rigidbody2D.AddForce(new Vector2(0, 1) * forceFly);
+
+            SoundController.PlaySound(soundsGame.FLY);
         }
         else if (Input.GetMouseButtonDown(0) && gameControler.getCurentState() == GameStates.TUTORIAL)
         {

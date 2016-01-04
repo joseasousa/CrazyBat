@@ -6,14 +6,14 @@ public class ObstaclesBehaviour : MonoBehaviour
 
     public float speed;
 
-    private GameControler gameControler;
+    private GameController gameControler;
 
     private bool passed;
 
     // Use this for initialization
     void Start()
     {
-        gameControler = FindObjectOfType(typeof(GameControler)) as GameControler;
+        gameControler = FindObjectOfType(typeof(GameController)) as GameController;
     }
 
     void OnEnable()

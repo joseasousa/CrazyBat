@@ -7,12 +7,12 @@ public class MoveOffset : MonoBehaviour
     private Material currentMaterial;
     public float speed;
     private float offset;
-    GameControler gameControler;
+    GameController gameControler;
 
     void Start()
     {
         currentMaterial = renderer.material;
-        gameControler = FindObjectOfType(typeof(GameControler)) as GameControler;
+        gameControler = FindObjectOfType(typeof(GameController)) as GameController;
     }
 
     void Update()
