@@ -18,7 +18,7 @@ public class BlinkBehavior : MonoBehaviour
 
         if (currentRateBlink > rateBlink)
         {
-            renderer.enabled = !renderer.enabled;
+            GetComponent<Renderer>().enabled = !GetComponent<Renderer>().enabled;
             currentRateBlink = 0;
         }
     }

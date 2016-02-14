@@ -21,21 +21,21 @@ public class SoundController : MonoBehaviour
         {
             case soundsGame.FLY:
                 {
-                    instance.audio.PlayOneShot(instance.soundFly);
+                    instance.GetComponent<AudioSource>().PlayOneShot(instance.soundFly);
                     break;
                 }
             case soundsGame.THEME_ON:
                 {
-                    instance.audio.enabled=true;
-                    instance.audio.loop=true;
-                    instance.audio.Play();
+                    instance.GetComponent<AudioSource>().enabled=true;
+                    instance.GetComponent<AudioSource>().loop=true;
+                    instance.GetComponent<AudioSource>().Play();
                     break;
                 }
             case soundsGame.THEME_OF:
                 {
-                    instance.audio.enabled = false;
-                    instance.audio.loop = false;
-                    instance.audio.Stop();
+                    instance.GetComponent<AudioSource>().enabled = false;
+                    instance.GetComponent<AudioSource>().loop = false;
+                    instance.GetComponent<AudioSource>().Stop();
                     break;
                 }
         }

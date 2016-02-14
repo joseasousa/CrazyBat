@@ -30,8 +30,8 @@ public class PlayerBehavior : MonoBehaviour
         {
             animatorPlayer.SetBool("CallFly", true);
             inAnin = true;
-            rigidbody2D.velocity = Vector2.zero;
-            rigidbody2D.AddForce(new Vector2(0, 1) * forceFly);
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1) * forceFly);
 
             SoundController.PlaySound(soundsGame.FLY);
         }
@@ -52,12 +52,12 @@ public class PlayerBehavior : MonoBehaviour
         if (gameControler.getCurentState() != GameStates.INGAME &&
            gameControler.getCurentState() != GameStates.GAMEOVER)
         {
-            rigidbody2D.gravityScale = 0;
+            GetComponent<Rigidbody2D>().gravityScale = 0;
             return;
         }
         else
         {
-            rigidbody2D.gravityScale = 1;
+            GetComponent<Rigidbody2D>().gravityScale = 1;
         }
 
         if (inAnin && gameControler.getCurentState() != GameStates.TUTORIAL)

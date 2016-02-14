@@ -11,7 +11,7 @@ public class MoveOffset : MonoBehaviour
 
     void Start()
     {
-        currentMaterial = renderer.material;
+        currentMaterial = GetComponent<Renderer>().material;
         gameControler = FindObjectOfType(typeof(GameController)) as GameController;
     }
 

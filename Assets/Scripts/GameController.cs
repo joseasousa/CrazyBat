@@ -37,13 +37,13 @@ public class GameController : MonoBehaviour
     private bool playSond;
 
     private int countProp;
-    private GoogleMobileAdsInterstitialDemo googleMobile;
+    
 
     void Start()
     {
         startPositionPlayer = player.position;
         gameOverController = FindObjectOfType(typeof(GameOverControler)) as GameOverControler;
-        googleMobile = FindObjectOfType(typeof(GoogleMobileAdsInterstitialDemo)) as GoogleMobileAdsInterstitialDemo;
+        
         playSond = true;
         countProp = 0;   
     }
@@ -90,8 +90,8 @@ public class GameController : MonoBehaviour
                     {
                         currentTimeToREstart = 0;
                         currentState = GameStates.RANKING;
-                        numberScore.renderer.enabled = false;
-                        shadowScore.renderer.enabled = false;
+                        numberScore.GetComponent<Renderer>().enabled = false;
+                        shadowScore.GetComponent<Renderer>().enabled = false;
                         numberScore.text = score.ToString();
                         shadowScore.text = score.ToString();
                         gameOverController.SetGameOver(score);
@@ -120,8 +120,8 @@ public class GameController : MonoBehaviour
             case (GameStates.RANKING):
                 {
                     player.position = startPositionPlayer;
-                    numberScore.renderer.enabled = false;
-                    shadowScore.renderer.enabled = false;
+                    numberScore.GetComponent<Renderer>().enabled = false;
+                    shadowScore.GetComponent<Renderer>().enabled = false;
                 }
                 break;
         }
@@ -130,8 +130,8 @@ public class GameController : MonoBehaviour
     public void StartGame()
     {
         currentState = GameStates.INGAME;
-        numberScore.renderer.enabled = true;
-        shadowScore.renderer.enabled = true;
+        numberScore.GetComponent<Renderer>().enabled = true;
+        shadowScore.GetComponent<Renderer>().enabled = true;
         score = 0;
         gameOverController.HideGameOver();
         mainTutorial.SetActive(false);
@@ -146,9 +146,7 @@ public class GameController : MonoBehaviour
     {
         currentState = GameStates.GAMEOVER;
         countProp++;
-        if (countProp == 5) {
-            googleMobile.StartBanner();
-        }
+        
     }
 
     public void CallTutorial()
